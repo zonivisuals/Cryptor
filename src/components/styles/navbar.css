@@ -1,8 +1,3 @@
-
-.left-nav{
-    font-family: var(--secondary-font);
-}
-
 nav{
     margin: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.24);
@@ -16,17 +11,10 @@ nav{
     background: linear-gradient(135deg, rgba(73,73,73,1) 0%, rgba(73,73,73,0.05) 100%);
 }
 
-.profile-pic{
-    height: 4.4em;
-    clip-path: circle();
+.left-nav{
+    font-family: var(--secondary-font);
+    display: flex;
 }
-
-.left-left-nav h1{
-    font-size: 3em;
-    font-style: none;
-    color: #FFFF;
-}
-
 
 .left-left-nav{
     display: flex;
@@ -35,19 +23,20 @@ nav{
     text-decoration: none;
 }
 
-.left-nav{
-    display: flex;
+.left-left-nav h1{
+    font-size: 3em;
+    color: #FFFF;
 }
 
 .left-right-nav{
+    font-family: var(--main-font);
     display: flex;
     align-items: center;
     gap: 3.2em;
     padding-left: 4.8em;
 }
 
-ul li{
-    text-decoration: none;
+.left-right-nav li{
     list-style: none;
 }
 
@@ -65,18 +54,30 @@ ul li{
 }
 
 select{
+    font-family: var(--main-font);
     cursor: pointer;
     background: none;
     color: #FFFF;
     border: none;
-    font-family: var(--main-font);
     font-size: 1.6em;
 }
 
-.right-nav a{
+select option{
+    color: black;
+}
+
+.profile-link{
     height: 4.4em;
 }
 
+
+.profile-pic{
+    height: 4.4em;
+    clip-path: circle();
+}
+
+
+/*Animate the hover/focus nav links*/
 .navlink{
     position: relative;
     transition: ease-out 0.15s;
@@ -102,8 +103,4 @@ select{
 
 .navlink:focus{
     color: #47A663;
-}
-
-select option{
-    color: black;
 }
