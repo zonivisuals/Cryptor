@@ -1,3 +1,73 @@
+
 .left-nav{
     font-family: var(--secondary-font);
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFFF;
+    font-size: 62.5%;
+    padding: 0 3.2em;
+}
+
+.profile-pic{
+    height: 4.4em;
+    clip-path: circle();
+}
+
+.left-left-nav h1{
+    font-size: 3em;
+    font-style: none;
+    color: #FFFF;
+}
+
+
+.left-left-nav{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    text-decoration: none;
+}
+
+.left-nav{
+    display: flex;
+}
+
+.left-right-nav{
+    display: flex;
+    align-items: center;
+    gap: 3.2em;
+    padding-left: 4.8em;
+}
+
+ul li{
+    text-decoration: none;
+    list-style: none;
+}
+
+.left-right-nav li a{
+    font-size: 1.6em;
+    text-decoration: none;
+    color: #FFFF;
+}
+
+.right-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.8em;
+}
+
+select{
+    background: none;
+    color: #FFFF;
+    border: none;
+    font-family: var(--main-font);
+    font-size: 1.6em;
+}
+
+.right-nav a{
+    height: 4.4em;
 }
