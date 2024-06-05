@@ -4,12 +4,16 @@
 }
 
 nav{
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.24);
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #FFFF;
     font-size: 62.5%;
     padding: 0 3.2em;
+    background: rgb(73,73,73);
+    background: linear-gradient(135deg, rgba(73,73,73,1) 0%, rgba(73,73,73,0.05) 100%);
 }
 
 .profile-pic{
@@ -61,6 +65,7 @@ ul li{
 }
 
 select{
+    cursor: pointer;
     background: none;
     color: #FFFF;
     border: none;
@@ -70,4 +75,35 @@ select{
 
 .right-nav a{
     height: 4.4em;
+}
+
+.navlink{
+    position: relative;
+    transition: ease-out 0.15s;
+}
+
+.navlink::after{
+    content: '';
+    height: 4px;
+    width: 0%;
+    background: #47A663;
+    position: absolute;
+    left: 0;
+    bottom: -2em;
+    transition: ease-in-out 0.15s;
+    opacity: 0.5;
+}
+
+.navlink:hover::after,
+.navlink:focus::after{
+    width: 100%;
+    opacity: 1;
+}
+
+.navlink:focus{
+    color: #47A663;
+}
+
+select option{
+    color: black;
 }

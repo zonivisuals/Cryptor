@@ -14,10 +14,10 @@ export default function Navbar() {
         </a>
 
         <ul className='left-right-nav'>
-          <li><a href="#dashboard">Dashboard</a></li>
-          <li><a href="#markets">Markets</a></li>
-          <li><a href="#wallet">Wallet</a></li>
-          <li><a href="#news">News</a></li>
+          <li><a className='navlink' href="#dashboard" active>Dashboard</a></li>
+          <li><a className='navlink' href="#markets">Markets</a></li>
+          <li><a className='navlink' href="#wallet">Wallet</a></li>
+          <li><a className='navlink' href="#news">News</a></li>
         </ul>
 
       </div>
