@@ -5,7 +5,7 @@ import profilePic from '../../assets/pdp.jpeg' // will import it later from data
 
 export default function Navbar() {
   return (
-    <nav>
+    <nav>  
       <div className='left-nav'>
 
         <a href='#dashboard' className='left-left-nav'>
