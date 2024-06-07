@@ -10,7 +10,6 @@ function App() {
       <Navbar/>
       <Sidebar>
         <ProfileMenu/>
-        <ProfileMenu/>
         <WalletMenu/>
       </Sidebar>
     </div>

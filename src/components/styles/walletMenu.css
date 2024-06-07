@@ -4,18 +4,16 @@
     align-items: center;
     justify-content: end;
     color: white;
-
-    position: absolute;
-    left: 2.88em;
-    right: 2.88em;
-    bottom: 11.1em;
-
+   
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 0.8em;
-
+    
     background: linear-gradient(50deg, rgba(73, 73, 73, 1) 0%, rgba(73,73,73,0) 100%);
-
+    width: calc(100% - 4.2em);
     height: 24.5em;
+
+    position: relative;
+    margin-bottom: 11.1em;
 }
 
 .wallet-menu-card{
@@ -23,11 +21,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    align-content: center;
 }
 
 .wallet-menu-illustration{
+    width: 16.1em;
+
     position: absolute;
     bottom: 17.6em;
+
 }
 
 .wallet-menu-title{
@@ -50,7 +52,7 @@
     font-size: 1.4em;
     font-weight: 500;
     width: 100%;
-    height: 3.8em;
+    height: 3.6em;
     border: none;
     border-radius: 0 0 0.4rem 0.4rem ;
 }
