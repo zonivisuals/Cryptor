@@ -11,7 +11,7 @@ export default function walletMenu() {
         <h1 className='wallet-menu-title'>Get more with your Wallet</h1>
         <p className='wallet-menu-text'>Оpen advanced functionality with your wallet and unlock new opportunities</p>
       </div>    
-        <button className='wallet-menu-btn'>Coming Soon</button>
+        <a className='wallet-menu-btn' href="#wallet"><button>Coming Soon</button></a>
     </div>
   )
 }
