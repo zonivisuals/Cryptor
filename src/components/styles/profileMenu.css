@@ -11,6 +11,8 @@
     box-sizing: border-box;
 
     margin-top: 3.1em;
+
+    border-right: 4px solid #47A663;
 }
 
 .profile-menu-props{
