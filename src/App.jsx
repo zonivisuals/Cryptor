@@ -7,6 +7,7 @@ import WalletMenu from './components/in-sidebar/walletMenu'
 import Dashboard from './components/pages/dashboard'
 import CryptoChart from './components/in-dashboard/CryptoChart'
 import CryptoContext from './CryptoContext'
+import CoinsTable from './components/in-dashboard/CoinsTable'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         
         <Dashboard>
           <CryptoChart/>
+          <CoinsTable/>
         </Dashboard>
       </div>
     </CryptoContext>
