@@ -1,40 +1,35 @@
 import React from 'react'
-import {Line} from 'react-chartjs-2'
+import {useState, useEffect} from 'react'
+import { CryptoState } from "../../CryptoContext"
+import { HistoricalChart } from "../../config/cryptoApi.js"
+import { Line } from "react-chartjs-2";
+import axios from 'axios';
 
-import {
-  Chart as ChartJs,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-} from 'chart.js'
+const CryptoChart = ({}) => {
 
-ChartJs.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-)
+  const id = "bitcoin"
+  
+  const [historicData, setHistoricData] = useState()
+  const [days, setDays] = useState(1)
 
+  const {currency} = CryptoState()
 
-export default function CryptoChart() {
-    const options = {}
-    const data = {
-        labels: ["1" ,"2" ,"3" ,"4" ,"5"],
-        datasets: [{
-            label: "steps",
-            data: [10, 20, 30, 40, 60],
-            borderColor: "cyan",
-        }],
-    }
-    
-    return (
-    <Line options = {options} data = {data} />
+  const fetchHistoricData = async()=>{
+    const {data} = await axios.get(HistoricalChart(id, days, currency))
+    setHistoricData(data.prices)
+  }
+
+  useEffect(()=>{
+    fetchHistoricData()
+  }, [currency, days])
+
+  console.log(historicData)
+  
+  return (
+    <div>
+
+    </div>
   )
 }
+
+export default CryptoChart
