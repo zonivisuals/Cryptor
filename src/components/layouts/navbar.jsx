@@ -2,8 +2,13 @@ import React from 'react'
 import '../styles/navbar.css'
 import cryptorLogo from '../../assets/cryptor logo.svg'
 import profilePic from '../../assets/pdp.jpeg' // will import it later from database
+import { CryptoState } from '../../CryptoContext'
 
 export default function Navbar() {
+
+  const {currency, setCurrency} = CryptoState()
+
+
   return (
     <nav>  
       <div className='left-nav'>
@@ -30,7 +35,7 @@ export default function Navbar() {
           <option value="fr">FR</option>
         </select>
 
-        <select className='select-curr'>
+        <select className='select-curr' onChange={(e) => setCurrency(e.target.value)}>
           <option value="usd">USD</option>
           <option value="eur">EUR</option>
         </select>
