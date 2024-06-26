@@ -13,7 +13,8 @@ import {
   Title,
   Tooltip,
   Legend,
-  TimeScale
+  TimeScale,
+  Filler
 } from 'chart.js';
 
 ChartJS.register(
@@ -24,19 +25,20 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  TimeScale
+  TimeScale,
+  Filler
 );
 
 const CryptoChart = ({ selectedCoin }) => {
   const { currency } = CryptoState();
-  const [days, setDays] = useState(1);
+  const [days, setDays] = useState(30);
   const [coinsData, setCoinsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false); 
   const [error, setError] = useState(null); 
 
   const fetchCoins = async () => {
     if (!selectedCoin) return;
-
+    
     setIsLoading(true);
     setError(null);
     try {
@@ -56,25 +58,35 @@ const CryptoChart = ({ selectedCoin }) => {
   const chartData = {
     labels: coinsData.map((coin) => {
       let date = new Date(coin[0]);
-      return date.toLocaleDateString();
+      return date;
     }),
     datasets: [
       {
         label: `Price in ${currency}`,
         data: coinsData.map((coin) => coin[1]),
-        fill: true,
-        backgroundColor: 'rgba(75,192,192,0.2)',
-        borderColor: 'rgba(75,192,192,1)',
+
+        //gradient bg color
+        backgroundColor: (context)=>{
+          const bgColor = ['rgba(71,166,99,0.2)', 'rgba(71,166,99,0)']
+          console.log(context)
+          if(!context.chart.chartArea) return;
+          const {ctx, data, chartArea: {top, bottom}} = context.chart
+          const gradientBg = ctx.createLinearGradient(0, top, 0, bottom)
+          gradientBg.addColorStop(0, bgColor[0])
+          gradientBg.addColorStop(1, bgColor[1])
+          return gradientBg;
+
+        },
+        borderColor: 'rgba(67,150,92,1)',
+        tension: 0.1,
+        pointRadius: 0, 
+        pointHoverRadius: 10, 
+        fill: true
       },
     ],
   };
 
   const chartOptions = {
-    elements: {
-      line: {
-        tension: 0.1,
-      },
-    },
     scales: {
       x: {
         type: 'time',
