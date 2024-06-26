@@ -1,13 +1,58 @@
-.coins-table {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
+
+table {
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
 }
-  
-#name-col{
-    display: flex;
-    align-items: center;
-    justify-content: start;
+
+.table__body {
+    width: 90vw;
+    max-height: calc(89% - 1.6rem);
+    background-color: #fffb;
+
+    margin: 0 auto;
+    border-radius: .6rem;
+
+    overflow: auto;
+    overflow: overlay;
 }
-  
+
+td img {
+    width: 36px;
+    height: 36px;
+    margin-right: .5rem;
+    border-radius: 50%;
+
+    vertical-align: middle;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: left;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+    cursor: pointer;
+    text-transform: capitalize;
+    color: blue;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #0000000b;
+}
+
+tbody tr:hover {
+    background-color: #fff6 !important;
+}
+
+@media (max-width: 1000px) {
+    td:not(:first-of-type) {
+        min-width: 12.1rem;
+    }
+}
+

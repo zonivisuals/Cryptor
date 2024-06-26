@@ -1,10 +1,20 @@
-import React from 'react'
-import '../styles/dashboard.css'
+import React, { useState } from 'react';
+import CryptoChart from '../in-dashboard/CryptoChart';
+import CoinsTable from '../in-dashboard/CoinsTable';
 
-export default function dashboard(props) {
+const Dashboard = () => {
+  const [selectedCoin, setSelectedCoin] = useState(null);
+
+  const handleCoinSelect = (id) => {
+    setSelectedCoin(id);
+  };
+
   return (
     <div className='dashboard'>
-      {props.children}
+      <CryptoChart selectedCoin={selectedCoin} />
+      <CoinsTable onCoinSelect={handleCoinSelect} />
     </div>
-  )
-}
+  );
+};
+
+export default Dashboard;
