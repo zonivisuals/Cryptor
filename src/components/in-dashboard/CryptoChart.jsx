@@ -83,7 +83,7 @@ const CryptoChart = ({ selectedCoin }) => {
         },
 
         borderColor: 'rgba(67,150,92,1)',
-        tension: 0.1,
+        tension: 0.2, //how much curved the graph is
         pointRadius: 0, 
         pointHoverRadius: 10, 
         fill: true
