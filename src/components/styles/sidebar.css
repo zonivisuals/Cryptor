@@ -1,6 +1,6 @@
 .sidebar{
     font-size: 62.5%;
-    width: 33.1em;
+    min-width: 33.1em;
     height: 100svh;
     background: linear-gradient(135deg, rgba(73,73,73,1) 0%, rgba(73,73,73,0) 100%);
     

@@ -44,7 +44,7 @@ thead th {
 
 tbody tr:hover {
     cursor: pointer;
-    background-color: #333333 !important;
+    background-color: #444444;
 }
 
 @media (max-width: 1000px) {

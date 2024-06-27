@@ -4,6 +4,7 @@ import { HistoricalChart } from "../../config/cryptoApi";
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 import 'chartjs-adapter-moment';
+import '../styles/cryptoInfos.css'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -29,7 +30,7 @@ ChartJS.register(
   Filler
 );
 
-const CryptoChart = ({ selectedCoin }) => {
+const CryptoInfos = ({ selectedCoin }) => {
   const { currency } = CryptoState();
   const [days, setDays] = useState(30);
   const [coinsData, setCoinsData] = useState([]);
@@ -106,16 +107,19 @@ const CryptoChart = ({ selectedCoin }) => {
   };
 
   return (
-    <div className='crypto-chart'>
-      {isLoading ? (
-        <p>Loading chart data...</p>
-      ) : error ? (
-        <p>Error fetching data: {error.message}</p>
-      ) : (
-        <Line data={chartData} options={chartOptions} />
-      )}
+    <div className='crypto-infos'>
+      <div className='crypto-desc'>hello im bitcoin</div>
+      <div className='crypto-chart'>
+        {isLoading ? (
+          <p>Loading chart data...</p>
+        ) : error ? (
+          <p>Error fetching data: {error.message}</p>
+        ) : (
+          <Line data={chartData} options={chartOptions} />
+        )}
+      </div>
     </div>
   );
 };
 
-export default CryptoChart;
+export default CryptoInfos;

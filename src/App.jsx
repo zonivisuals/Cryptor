@@ -12,13 +12,14 @@ function App() {
     <CryptoContext>
       <div className='app'>
         <Navbar />
+          <div className='hero'>
+            <Sidebar>
+              <ProfileMenu />
+              <WalletMenu />
+            </Sidebar>
+            <Dashboard />
+        </div>
 
-        <Sidebar>
-          <ProfileMenu />
-          <WalletMenu />
-        </Sidebar>
-        
-        <Dashboard />
       </div>
     </CryptoContext>
   );

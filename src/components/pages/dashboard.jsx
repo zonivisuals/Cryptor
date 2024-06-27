@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import CryptoChart from '../in-dashboard/CryptoChart';
+import CryptoInfos from '../in-dashboard/CryptoInfos';
 import CoinsTable from '../in-dashboard/CoinsTable';
+
 
 const Dashboard = () => {
   const [selectedCoin, setSelectedCoin] = useState(null);
@@ -11,7 +12,7 @@ const Dashboard = () => {
 
   return (
     <div className='dashboard'>
-      <CryptoChart selectedCoin={selectedCoin} />
+      <CryptoInfos selectedCoin={selectedCoin} />
       <CoinsTable onCoinSelect={handleCoinSelect} />
     </div>
   );
