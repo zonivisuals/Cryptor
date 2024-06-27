@@ -36,9 +36,8 @@ const CryptoChart = ({ selectedCoin }) => {
   const [isLoading, setIsLoading] = useState(false); 
   const [error, setError] = useState(null); 
 
+  if(!selectedCoin) selectedCoin = "bitcoin"
   const fetchCoins = async () => {
-    if (!selectedCoin) return;
-    
     setIsLoading(true);
     setError(null);
     try {
@@ -55,28 +54,34 @@ const CryptoChart = ({ selectedCoin }) => {
     fetchCoins();
   }, [selectedCoin, currency, days]); 
 
+  //chartData object contauns all the data and settings to render the chart
   const chartData = {
-    labels: coinsData.map((coin) => {
-      let date = new Date(coin[0]);
+    
+    //x axis labels
+    labels: coinsData.map((coin) =>{
+      let date = new Date(coin[0])
       return date;
     }),
+
+    //in our case we have only one dataset so one chart
     datasets: [
       {
-        label: `Price in ${currency}`,
+        label: `Price of ${selectedCoin}`,
+        
+        //mapping the crypto price (y-axis)
         data: coinsData.map((coin) => coin[1]),
 
         //gradient bg color
         backgroundColor: (context)=>{
           const bgColor = ['rgba(71,166,99,0.2)', 'rgba(71,166,99,0)']
-          console.log(context)
           if(!context.chart.chartArea) return;
           const {ctx, data, chartArea: {top, bottom}} = context.chart
           const gradientBg = ctx.createLinearGradient(0, top, 0, bottom)
           gradientBg.addColorStop(0, bgColor[0])
           gradientBg.addColorStop(1, bgColor[1])
           return gradientBg;
-
         },
+
         borderColor: 'rgba(67,150,92,1)',
         tension: 0.1,
         pointRadius: 0, 
