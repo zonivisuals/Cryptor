@@ -22,3 +22,82 @@
 .hour-24{
     font-size: 1.2em;
 }
+
+.current-price-and-percentage{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1.6em;
+}
+ 
+#arrow{
+    background-color: white;
+    clip-path: circle();
+    padding: 0.4em;
+    width: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#price-up-arrow{
+    color: #57BC76;
+}
+
+#price-down-arrow{
+    color: #E14141;
+}
+
+.price-up-for-percentage-change-24h{
+    background: linear-gradient(90deg, rgba(87,188,118,1) 0%, rgba(57,146,82,1) 100%);
+    width: 10.4em;
+    height: 4em;
+    padding: 1.2em 1.1em;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.3em;
+    border-radius: 0.4em;
+}
+
+.price-down-for-percentage-change-24h{
+    background: linear-gradient(90deg, rgba(225,65,65,1) 0%, rgba(181,82,82,1) 100%);
+    width: 10.4em;
+    height: 4em;
+    padding: 1.2em 1.1em;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.3em;
+    border-radius: 0.4em;
+}
+
+/*box containing arrow & % change value*/
+.crypto-price-percentage-change-24h{
+    width: 10.4em;
+    height: 4em;
+    padding: 1.2em 1.1em;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.3em;
+    border-radius: 0.4em;
+}
+
+.crypto-price-percentage-change-24h p{
+    font-size: 1.4em;
+    color: white;
+}
+
+.price-down-for-percentage-change-24h p{
+    font-size: 1.4em;
+    color: white;
+}
+
+.price-up-for-percentage-change-24h p{
+    font-size: 1.4em;
+    color: white;
+}
