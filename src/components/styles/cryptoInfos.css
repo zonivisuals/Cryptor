@@ -148,8 +148,31 @@
 }
 
 .crypto-name-and-days{
-    
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+#day-span{
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 1.4em;
+    
+}
+
+#day-span:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+#seperate-span{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+.days{
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.4em 0;
+    border-radius: 0.4em;
+    background-color: rgba(255, 255, 255, 0.05);
 }

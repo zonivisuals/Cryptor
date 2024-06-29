@@ -96,14 +96,17 @@ if(priceDiff > 0){
   priceDiff = '+ $'+priceDiff.toFixed(2)
   priceDiffClass = 'price-diff-up'
 }
-  
 else if (priceDiff < 0){
   priceDiff = '- $'+Math.abs(priceDiff.toFixed(2))
   priceDiffClass = 'price-diff-down'
 }
-  
 else
   priceDiff = '$'+0
+
+
+const handleDaysChange = (newDays) =>{
+  setDays(newDays)
+}
 
 
   useEffect(() => {
@@ -194,10 +197,20 @@ else
           <p className='hour-24'>24h</p>
         </div>
         
-        <div>
+        <div className='crypto-name-and-days'>
           <p className='selected-crypto-name'>{selectedCoin[0].toUpperCase() +
         selectedCoin.slice(1)}</p>
-          <div className='days'></div>
+          <div className='days'>
+            <span id='day-span' onClick={()=>handleDaysChange(1)}>24H</span>
+            <span id='seperate-span' >|</span>
+            <span id='day-span' onClick={()=>handleDaysChange(7)}>7D</span>
+            <span id='seperate-span' >|</span>
+            <span id='day-span' onClick={()=>handleDaysChange(30)}>30D</span>
+            <span id='seperate-span' >|</span>
+            <span id='day-span' onClick={()=>handleDaysChange(90)}>90D</span>
+            <span id='seperate-span' >|</span>
+            <span id='day-span' onClick={()=>handleDaysChange(365)}>1YEAR</span>
+          </div>
         </div>
 
       </div>
