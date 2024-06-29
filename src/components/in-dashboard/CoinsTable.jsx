@@ -21,7 +21,7 @@ const CoinsTable = ({ onCoinSelect }) => {
   }, [currency]);
 
   return (
-    <div className='table__body'>
+    <div className='coins-table'>
       <table>
         <thead>
           <tr>

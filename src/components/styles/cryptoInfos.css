@@ -1,3 +1,24 @@
 .crypto-infos{
     padding: 50px;
 }
+
+.crypto-desc{
+    color: white;
+    font-size: 62.5%;
+}
+
+.crypto-desc p{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.selected-crypto-price{
+    font-size: 4em;
+}
+
+.price-diff{
+    font-size: 2.6em;
+}
+
+.hour-24{
+    font-size: 1.2em;
+}

@@ -17,6 +17,7 @@ import {
   TimeScale,
   Filler
 } from 'chart.js';
+import { getByDisplayValue } from '@testing-library/react';
 
 ChartJS.register(
   CategoryScale,
@@ -36,6 +37,7 @@ const CryptoInfos = ({ selectedCoin }) => {
   const [coinsData, setCoinsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false); 
   const [error, setError] = useState(null); 
+  const [currentPrice, setCurrentPrice] = useState(null)
 
   if(!selectedCoin) selectedCoin = "bitcoin"
   const fetchCoins = async () => {
@@ -44,6 +46,10 @@ const CryptoInfos = ({ selectedCoin }) => {
     try {
       const { data } = await axios.get(HistoricalChart(selectedCoin, days, currency));
       setCoinsData(data.prices);
+      
+      const currentPrice = data.prices[data.prices.length - 1][1]
+      setCurrentPrice(currentPrice);
+    
     } catch (error) {
       setError(error); 
     } finally {
@@ -99,16 +105,48 @@ const CryptoInfos = ({ selectedCoin }) => {
         time: {
           unit: 'day',
         },
+        grid: {
+          display: false,
+        }
       },
       y: {
         beginAtZero: false,
+        grid: {
+          display: true,
+          color: 'rgba(200, 200, 200, 0.15)', 
+          drawBorder: true, 
+          drawTicks: false,
+        },
+        border:{
+          dash: [5,5]
+        }
       },
-    },
-  };
+      responsive: true
+    }
+  }
 
   return (
     <div className='crypto-infos'>
-      <div className='crypto-desc'>hello im bitcoin</div>
+      <div className='crypto-desc'>
+        <p>Current Price</p>
+          
+          <div>
+            <h1 className='selected-crypto-price'>{currentPrice ? '$ '+currentPrice.toFixed(2) : 'Loading Price...'}</h1>
+            <div className='crypto-price-percentage-change-24h'>
+            </div>
+          </div>
+
+          <div className='crypto-price-change-24h'>
+            <p className='price-diff'>+ $303</p>
+            <p className='hour-24'>24h</p>
+          </div>
+          
+          <div>
+            <p className='selected-crypto-name'>Bitcoin</p>
+            <div className='days'></div>
+          </div>
+
+      </div>
       <div className='crypto-chart'>
         {isLoading ? (
           <p>Loading chart data...</p>

@@ -12,10 +12,10 @@ body {
 
 .hero{
   display: flex;
-  max-width: 50vw;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 .dashboard{
-  flex: 1;
-  width: 100%;
+  width: 100vw;
 }
