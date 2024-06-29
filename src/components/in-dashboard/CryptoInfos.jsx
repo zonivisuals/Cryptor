@@ -38,6 +38,7 @@ const CryptoInfos = ({ selectedCoin }) => {
   const [isLoading, setIsLoading] = useState(false); 
   const [error, setError] = useState(null); 
   const [currentPrice, setCurrentPrice] = useState(null)
+  const [price24HoursAgo, setPrice24HoursAgo] = useState(null)
 
   if(!selectedCoin) selectedCoin = "bitcoin"
   const fetchCoins = async () => {
@@ -48,7 +49,15 @@ const CryptoInfos = ({ selectedCoin }) => {
       setCoinsData(data.prices);
       
       const currentPrice = data.prices[data.prices.length - 1][1]
+      
+      const price24HoursAgo = data.prices.find((price)=>{
+        const date = new Date(price[0])
+        const now = new Date()
+        return (now.getTime() - date.getTime()) <= (24 *60 *60 *1000) //24hrs in milliseconds 
+      })[1]
+
       setCurrentPrice(currentPrice);
+      setPrice24HoursAgo(price24HoursAgo)
     
     } catch (error) {
       setError(error); 
@@ -133,6 +142,7 @@ const CryptoInfos = ({ selectedCoin }) => {
           <div>
             <h1 className='selected-crypto-price'>{currentPrice ? '$ '+currentPrice.toFixed(2) : 'Loading Price...'}</h1>
             <div className='crypto-price-percentage-change-24h'>
+              <p>{((currentPrice - price24HoursAgo)/price24HoursAgo)*100}%</p>
             </div>
           </div>
 
