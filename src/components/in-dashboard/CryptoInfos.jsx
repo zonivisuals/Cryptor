@@ -91,10 +91,17 @@ const CryptoInfos = ({ selectedCoin }) => {
 }
 
 let priceDiff = currentPrice - price24HoursAgo
-if(priceDiff > 0)
+let priceDiffClass = 'price-diff'
+if(priceDiff > 0){
   priceDiff = '+ $'+priceDiff.toFixed(2)
-else if (priceDiff < 0)
+  priceDiffClass = 'price-diff-up'
+}
+  
+else if (priceDiff < 0){
   priceDiff = '- $'+Math.abs(priceDiff.toFixed(2))
+  priceDiffClass = 'price-diff-down'
+}
+  
 else
   priceDiff = '$'+0
 
@@ -173,7 +180,7 @@ else
 
     <div className='crypto-infos'>
       <div className='crypto-desc'>
-        <p>Current Price</p>
+        <p className='title'>Current Price</p>
         <div className='current-price-and-percentage'>
           <h1 className='selected-crypto-price'>{currentPrice ? '$ '+currentPrice.toFixed(2) : 'Loading Price...'}</h1>
           <div className={cryptoPercentageBoxClass}>
@@ -183,7 +190,7 @@ else
         </div>
         
         <div className='crypto-price-change-24h'>
-          <p className='price-diff'>{priceDiff}</p>
+          <p className={priceDiffClass}>{priceDiff}</p>
           <p className='hour-24'>24h</p>
         </div>
         

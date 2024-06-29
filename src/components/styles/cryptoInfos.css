@@ -1,26 +1,27 @@
 .crypto-infos{
-    padding: 50px;
+    margin: 2em;
 }
 
 .crypto-desc{
     color: white;
     font-size: 62.5%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.title{
+    font-size: 1.4em;
+    color: rgba(255, 255, 255, 0.5);
+
 }
 
 .crypto-desc p{
-    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
 }
 
 .selected-crypto-price{
     font-size: 4em;
-}
-
-.price-diff{
-    font-size: 2.6em;
-}
-
-.hour-24{
-    font-size: 1.2em;
 }
 
 .current-price-and-percentage{
@@ -28,6 +29,10 @@
     align-items: center;
     justify-content: start;
     gap: 1.6em;
+}
+
+.selected-crypto-price{
+    margin: 0;
 }
  
 #arrow{
@@ -100,4 +105,34 @@
 .price-up-for-percentage-change-24h p{
     font-size: 1.4em;
     color: white;
+}
+
+.crypto-price-change-24h{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 1.4em;
+}
+
+.price-diff{
+    font-size: 1.6em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.price-diff-up{
+    font-size: 1.6em;
+    color: #57BC76;
+}
+
+.price-diff-down{
+    font-size: 1.6em;
+    color: #E14141;
+}
+
+.hour-24{
+    font-size: 1.2em;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.25em 0.6em;
+    border-radius: 0.4em;
 }
