@@ -125,8 +125,6 @@ const handleDaysChange = (newDays) =>{
     //in our case we have only one dataset so one chart
     datasets: [
       {
-        label: `Price of ${selectedCoin}`,
-        
         //mapping the crypto price (y-axis)
         data: coinsData.map((coin) => coin[1]),
 
@@ -151,6 +149,11 @@ const handleDaysChange = (newDays) =>{
   };
 
   const chartOptions = {
+    plugins: {
+        legend: {
+            display: false,
+        }
+    },
     scales: {
       x: {
         type: 'time',
@@ -178,8 +181,6 @@ const handleDaysChange = (newDays) =>{
   }
 
   return (
-
-    
 
     <div className='crypto-infos'>
       <div className='crypto-desc'>

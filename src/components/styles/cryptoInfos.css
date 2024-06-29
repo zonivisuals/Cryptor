@@ -1,5 +1,6 @@
 .crypto-infos{
     margin: 2em;
+    width: 92%;
 }
 
 .crypto-desc{
@@ -144,10 +145,10 @@
     width: fit-content;
     padding: 0.85em 2.25em;
     font-size: 1.4em;
-    margin: 2.5em 0 0 0;
 }
 
 .crypto-name-and-days{
+    margin: 1.2em 0 0 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -175,4 +176,8 @@
     padding: 1.4em 0;
     border-radius: 0.4em;
     background-color: rgba(255, 255, 255, 0.05);
+}
+
+.crypto-chart{
+    margin-top: 2.2em;
 }
