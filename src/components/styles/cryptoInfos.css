@@ -13,12 +13,9 @@
 .title{
     font-size: 1.4em;
     color: rgba(255, 255, 255, 0.5);
-
-}
-
-.crypto-desc p{
     margin: 0;
 }
+
 
 .selected-crypto-price{
     font-size: 4em;
@@ -115,24 +112,44 @@
 }
 
 .price-diff{
+    margin: 0;
     font-size: 1.6em;
     color: rgba(255, 255, 255, 0.5);
 }
 
 .price-diff-up{
+    margin: 0;
     font-size: 1.6em;
     color: #57BC76;
 }
 
 .price-diff-down{
+    margin: 0;
     font-size: 1.6em;
     color: #E14141;
 }
 
 .hour-24{
+    margin: 0;
     font-size: 1.2em;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: rgba(255, 255, 255, 0.05);
     padding: 0.25em 0.6em;
     border-radius: 0.4em;
+}
+
+.selected-crypto-name{
+    background-color: hsla(138, 40%, 46%, 0.5);
+    border-radius: 0.4em;
+    width: fit-content;
+    padding: 0.85em 2.25em;
+    font-size: 1.4em;
+    margin: 2.5em 0 0 0;
+}
+
+.crypto-name-and-days{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

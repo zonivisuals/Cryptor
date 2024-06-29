@@ -195,7 +195,8 @@ else
         </div>
         
         <div>
-          <p className='selected-crypto-name'>Bitcoin</p>
+          <p className='selected-crypto-name'>{selectedCoin[0].toUpperCase() +
+        selectedCoin.slice(1)}</p>
           <div className='days'></div>
         </div>
 
