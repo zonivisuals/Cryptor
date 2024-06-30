@@ -1,5 +1,5 @@
 .coins-table {
-    width: fit-content;
+    min-width: fit-content;
     max-height: calc(89% - 1.6rem);
     background-color: #333333;
 
@@ -10,7 +10,7 @@
 }
 
 table {
-    min-width: 100%;
+    width: 100%;
     overflow: hidden;
     color: white;
     font-size: 62.5%;
@@ -50,4 +50,27 @@ table th{
 table td{
     font-size: 1.4em;
     border-top: 2px solid #272727;
+}
+
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.8em 0;
+}
+
+.pagination button{
+    cursor: pointer;
+    border: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    padding: .4em .8em;
+    border-radius: .4em;
+}
+
+.pagination button:h
+
+.pagination span{
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 .8em;
 }

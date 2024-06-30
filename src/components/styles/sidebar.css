@@ -1,7 +1,7 @@
 .sidebar{
     font-size: 62.5%;
     min-width: 33.1em;
-    height: 100svh;
+    height: 100vh;
     background: linear-gradient(135deg, rgba(73,73,73,1) 0%, rgba(73,73,73,0) 100%);
     
     border-right: 1px solid;
@@ -14,6 +14,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+
 }
 
 

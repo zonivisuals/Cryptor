@@ -226,6 +226,7 @@ const handleDaysChange = (newDays) =>{
           <Line data={chartData} options={chartOptions} />
         )}
       </div>
+
     </div>
   );
 };
