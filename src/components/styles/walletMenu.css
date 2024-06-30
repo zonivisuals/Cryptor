@@ -9,11 +9,12 @@
     border-radius: 0.8em;
     
     background: linear-gradient(50deg, rgba(73, 73, 73, 1) 0%, rgba(73,73,73,0) 100%);
-    width: calc(100% - 4.2em);
+    
+    width: 30em;
     height: 24.5em;
 
-    position: relative;
-    margin-bottom: 11.1em;
+    position: fixed;
+    top: 44.12em;
 }
 
 .wallet-menu-card{

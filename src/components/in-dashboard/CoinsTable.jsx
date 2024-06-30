@@ -5,7 +5,7 @@ import { CryptoState } from '../../CryptoContext';
 import '../styles/coinsTable.css';
 
 const CoinsTable = ({ onCoinSelect }) => {
-  const { currency } = CryptoState();  
+  const { currency, symbol } = CryptoState();  
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -62,8 +62,8 @@ const CoinsTable = ({ onCoinSelect }) => {
                   <td id='name-col'>
                     <img src={item.image} alt={item.name} /> {item.id} ({item.symbol})
                   </td>
-                  <td>{item.current_price}</td>
-                  <td>{item.price_change_24h}</td>
+                  <td>{symbol} {item.current_price}</td>
+                  <td>{symbol} {item.price_change_24h}</td>
                   <td>{item.market_cap}</td>
                   <td>{item.high_24h}</td>
                   <td>{item.low_24h}</td>

@@ -32,7 +32,7 @@ ChartJS.register(
 );
 
 const CryptoInfos = ({ selectedCoin }) => {
-  const { currency } = CryptoState();
+  const { currency, symbol } = CryptoState();
   const [days, setDays] = useState(30);
   const [coinsData, setCoinsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false); 
@@ -93,15 +93,15 @@ const CryptoInfos = ({ selectedCoin }) => {
 let priceDiff = currentPrice - price24HoursAgo
 let priceDiffClass = 'price-diff'
 if(priceDiff > 0){
-  priceDiff = '+ $'+priceDiff.toFixed(2)
+  priceDiff = '+ '+symbol+priceDiff.toFixed(2)
   priceDiffClass = 'price-diff-up'
 }
 else if (priceDiff < 0){
-  priceDiff = '- $'+Math.abs(priceDiff.toFixed(2))
+  priceDiff = '- '+symbol+Math.abs(priceDiff.toFixed(2))
   priceDiffClass = 'price-diff-down'
 }
 else
-  priceDiff = '$'+0
+  priceDiff = symbol+0
 
 
 const handleDaysChange = (newDays) =>{
@@ -186,7 +186,7 @@ const handleDaysChange = (newDays) =>{
       <div className='crypto-desc'>
         <p className='title'>Current Price</p>
         <div className='current-price-and-percentage'>
-          <h1 className='selected-crypto-price'>{currentPrice ? '$ '+currentPrice.toFixed(2) : 'Loading Price...'}</h1>
+          <h1 className='selected-crypto-price'>{currentPrice ? symbol+' '+currentPrice.toFixed(2) : 'Loading Price...'}</h1>
           <div className={cryptoPercentageBoxClass}>
             <span id='arrow'>{getArrowIcon(priceChangePercentage24Hours())}</span>
             <p>{priceChangePercentage24Hours ? Math.abs(priceChangePercentage24Hours())+'%' : 'Loading %...'}</p>

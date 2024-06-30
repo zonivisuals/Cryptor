@@ -43,6 +43,7 @@ export default function Navbar() {
         <a href="#profile" className='profile-link'><img src={profilePic} alt="profile-pic" className="profile-pic" /></a>
       
       </div>
+
     </nav>
   )
 }
