@@ -37,7 +37,7 @@ const CryptoInfos = ({ selectedCoin, tableCoinsData }) => {
   const [isLoading, setIsLoading] = useState(false); 
   const [error, setError] = useState(null); 
   const [currentPrice, setCurrentPrice] = useState(null);
-  const [selectedCoinDatas, setSelectedCoinDatas] = useState(null);
+  const [selectedCoinDatas, setSelectedCoinDatas] = useState(null); // Initialize as null
 
   if (!selectedCoin) selectedCoin = "bitcoin";
 
@@ -79,20 +79,22 @@ const CryptoInfos = ({ selectedCoin, tableCoinsData }) => {
     }
   };
 
-  let priceDiff = selectedCoinDatas ? selectedCoinDatas.price_change_24h : 0;
+  let priceDiff = selectedCoinDatas ? selectedCoinDatas.price_change_24h : 0; // Default to 0 if selectedCoinDatas is null
   let priceDiffClass = 'price-diff';
   let cryptoPercentageBoxClass = 'crypto-price-percentage-change-24h';
 
-  if (priceDiff > 0) {
-    cryptoPercentageBoxClass = 'price-up-for-percentage-change-24h';
-    priceDiff = '+ ' + symbol + priceDiff.toFixed(2);
-    priceDiffClass = 'price-diff-up';
-  } else if (priceDiff < 0) {
-    cryptoPercentageBoxClass = 'price-down-for-percentage-change-24h';
-    priceDiff = '- ' + symbol + Math.abs(priceDiff.toFixed(2));
-    priceDiffClass = 'price-diff-down';
-  } else {
-    priceDiff = symbol + 0;
+  if (selectedCoinDatas) { // Only process if selectedCoinDatas is not null
+    if (priceDiff > 0) {
+      cryptoPercentageBoxClass = 'price-up-for-percentage-change-24h';
+      priceDiff = '+ ' + symbol + priceDiff.toFixed(2);
+      priceDiffClass = 'price-diff-up';
+    } else if (priceDiff < 0) {
+      cryptoPercentageBoxClass = 'price-down-for-percentage-change-24h';
+      priceDiff = '- ' + symbol + Math.abs(priceDiff.toFixed(2));
+      priceDiffClass = 'price-diff-down';
+    } else {
+      priceDiff = symbol + 0;
+    }
   }
 
   const handleDaysChange = (newDays) => {
@@ -157,8 +159,6 @@ const CryptoInfos = ({ selectedCoin, tableCoinsData }) => {
     }
   };
 
-  console.log("pricediff: "+priceDiff)
-
   return (
     <div className='crypto-infos'>
       <div className='crypto-desc'>
@@ -167,10 +167,12 @@ const CryptoInfos = ({ selectedCoin, tableCoinsData }) => {
           <h1 className='selected-crypto-price'>
             {currentPrice ? symbol + ' ' + currentPrice.toFixed(2) : 'Loading Price...'}
           </h1>
-          <div className={cryptoPercentageBoxClass}>
-            <span className='arrow'>{getArrowIcon(selectedCoinDatas.price_change_24h)}</span>
-            <p>{Math.abs(selectedCoinDatas.price_change_percentage_24h.toFixed(2))}%</p>
-          </div>
+          {selectedCoinDatas && ( // Only render this div if selectedCoinDatas is not null
+            <div className={cryptoPercentageBoxClass}>
+              <span className='arrow'>{getArrowIcon(selectedCoinDatas.price_change_24h)}</span>
+              <p>{Math.abs(selectedCoinDatas.price_change_percentage_24h.toFixed(2))}%</p>
+            </div>
+          )}
         </div>
         
         <div className='crypto-price-change-24h'>

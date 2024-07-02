@@ -78,3 +78,11 @@ table td{
     color: rgba(255, 255, 255, 0.5);
     margin: 0 .8em;
 }
+
+.price-positive-change-24h{
+    color: #57BC76;
+}
+
+.price-negative-change-24h{
+    color: #E14141;
+}

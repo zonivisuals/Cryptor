@@ -49,8 +49,8 @@ const CoinsTable = ({ onCoinSelect, coins, loading }) => {
                       <img src={item.image} alt={item.name} /> {item.name} ({item.symbol})
                     </td>
                     <td>{symbol} {item.current_price.toFixed(2)}</td>
-                    <td className={item.price_change_percentage_24h > 0 ? 'positive-change' : 'negative-change'}>
-                      {item.price_change_percentage_24h.toFixed(2)}%
+                    <td className={item.price_change_percentage_24h > 0 ? 'price-positive-change-24h' : 'price-negative-change-24h'}>
+                      {item.price_change_percentage_24h >= 0 ? `+ ${Math.abs(item.price_change_percentage_24h.toFixed(2))}` : `- ${Math.abs(item.price_change_percentage_24h.toFixed(2))}`}%
                     </td>
                     <td>{symbol} {item.market_cap.toLocaleString()}</td>
                     <td>{symbol} {item.high_24h.toFixed(2)}</td>
