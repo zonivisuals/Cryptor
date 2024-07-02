@@ -33,7 +33,7 @@
     margin: 0;
 }
  
-#arrow{
+.arrow{
     background-color: white;
     clip-path: circle();
     padding: 0.4em;

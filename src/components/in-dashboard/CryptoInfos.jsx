@@ -4,7 +4,7 @@ import { HistoricalChart } from "../../config/cryptoApi";
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 import 'chartjs-adapter-moment';
-import '../styles/cryptoInfos.css'
+import '../styles/cryptoInfos.css';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -17,7 +17,6 @@ import {
   TimeScale,
   Filler
 } from 'chart.js';
-import { getByDisplayValue } from '@testing-library/react';
 
 ChartJS.register(
   CategoryScale,
@@ -31,34 +30,26 @@ ChartJS.register(
   Filler
 );
 
-const CryptoInfos = ({ selectedCoin, onPricePercentageChange}) => {
+const CryptoInfos = ({ selectedCoin, tableCoinsData }) => {
   const { currency, symbol } = CryptoState();
   const [days, setDays] = useState(30);
   const [coinsData, setCoinsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false); 
   const [error, setError] = useState(null); 
-  const [currentPrice, setCurrentPrice] = useState(null)
-  const [price24HoursAgo, setPrice24HoursAgo] = useState(null)
+  const [currentPrice, setCurrentPrice] = useState(null);
+  const [selectedCoinDatas, setSelectedCoinDatas] = useState(null);
 
-  if(!selectedCoin) selectedCoin = "bitcoin"
+  if (!selectedCoin) selectedCoin = "bitcoin";
+
   const fetchCoins = async () => {
     setIsLoading(true);
     setError(null);
     try {
       const { data } = await axios.get(HistoricalChart(selectedCoin, days, currency));
       setCoinsData(data.prices);
-      
-      const currentPrice = data.prices[data.prices.length - 1][1]
-      
-      const price24HoursAgo = data.prices.find((price)=>{
-        const date = new Date(price[0])
-        const now = new Date()
-        return (now.getTime() - date.getTime()) <= (24 *60 *60 *1000) //24hrs in milliseconds 
-      })[1]
-
+      const currentPrice = data.prices[data.prices.length - 1][1];
       setCurrentPrice(currentPrice);
-      setPrice24HoursAgo(price24HoursAgo)
-    
+      console.log('Fetched coin data:', data);
     } catch (error) {
       setError(error); 
     } finally {
@@ -66,83 +57,67 @@ const CryptoInfos = ({ selectedCoin, onPricePercentageChange}) => {
     }
   };
 
-  const priceChangePercentage24Hours = () =>{
-    const absoluteChange = currentPrice - price24HoursAgo
-    const percentageChange = (absoluteChange / price24HoursAgo)*100
-    return percentageChange.toFixed(2)
-  }
-
-  onPricePercentageChange(priceChangePercentage24Hours())
-
-  const getArrowIcon = (percentageChange)=>{
-    if(percentageChange > 0)
-      return <span id='price-up-arrow'>&#9650;</span>
-    else if(percentageChange < 0)
-      return <span id='price-down-arrow'>&#9660;</span>
-    else 
-      return null
-  }
-
-  let cryptoPercentageBoxClass
-  if (priceChangePercentage24Hours() > 0) {
-    cryptoPercentageBoxClass = 'price-up-for-percentage-change-24h';
-} else if (priceChangePercentage24Hours() < 0) {
-    cryptoPercentageBoxClass = 'price-down-for-percentage-change-24h';
-} else {
-    cryptoPercentageBoxClass = 'crypto-price-percentage-change-24h'; // Default background color class
-}
-
-let priceDiff = currentPrice - price24HoursAgo
-let priceDiffClass = 'price-diff'
-if(priceDiff > 0){
-  priceDiff = '+ '+symbol+priceDiff.toFixed(2)
-  priceDiffClass = 'price-diff-up'
-}
-else if (priceDiff < 0){
-  priceDiff = '- '+symbol+Math.abs(priceDiff.toFixed(2))
-  priceDiffClass = 'price-diff-down'
-}
-else
-  priceDiff = symbol+0
-
-
-const handleDaysChange = (newDays) =>{
-  setDays(newDays)
-}
-
-
   useEffect(() => {
     fetchCoins();
   }, [selectedCoin, currency, days]); 
+  
+  useEffect(() => {
+    if (tableCoinsData && selectedCoin) {
+      const coinDatas = tableCoinsData.find(coin => coin.id === selectedCoin);
+      setSelectedCoinDatas(coinDatas);
+      console.log('Selected coin data:', coinDatas);
+    }
+  }, [selectedCoin, tableCoinsData]);
 
-  //chartData object contauns all the data and settings to render the chart
+  const getArrowIcon = (percentageChange) => {
+    if (percentageChange > 0) {
+      return <span id='price-up-arrow'>&#9650;</span>;
+    } else if (percentageChange < 0) {
+      return <span id='price-down-arrow'>&#9660;</span>;
+    } else {
+      return null;
+    }
+  };
+
+  let priceDiff = selectedCoinDatas ? selectedCoinDatas.price_change_24h : 0;
+  let priceDiffClass = 'price-diff';
+  let cryptoPercentageBoxClass = 'crypto-price-percentage-change-24h';
+
+  if (priceDiff > 0) {
+    cryptoPercentageBoxClass = 'price-up-for-percentage-change-24h';
+    priceDiff = '+ ' + symbol + priceDiff.toFixed(2);
+    priceDiffClass = 'price-diff-up';
+  } else if (priceDiff < 0) {
+    cryptoPercentageBoxClass = 'price-down-for-percentage-change-24h';
+    priceDiff = '- ' + symbol + Math.abs(priceDiff.toFixed(2));
+    priceDiffClass = 'price-diff-down';
+  } else {
+    priceDiff = symbol + 0;
+  }
+
+  const handleDaysChange = (newDays) => {
+    setDays(newDays);
+  };
+
   const chartData = {
-    
-    //x axis labels
-    labels: coinsData.map((coin) =>{
-      let date = new Date(coin[0])
+    labels: coinsData.map((coin) => {
+      let date = new Date(coin[0]);
       return date;
     }),
-
-    //in our case we have only one dataset so one chart
     datasets: [
       {
-        //mapping the crypto price (y-axis)
         data: coinsData.map((coin) => coin[1]),
-
-        //gradient bg color
-        backgroundColor: (context)=>{
-          const bgColor = ['rgba(71,166,99,0.2)', 'rgba(71,166,99,0)']
-          if(!context.chart.chartArea) return;
-          const {ctx, data, chartArea: {top, bottom}} = context.chart
-          const gradientBg = ctx.createLinearGradient(0, top, 0, bottom)
-          gradientBg.addColorStop(0, bgColor[0])
-          gradientBg.addColorStop(1, bgColor[1])
+        backgroundColor: (context) => {
+          const bgColor = ['rgba(71,166,99,0.2)', 'rgba(71,166,99,0)'];
+          if (!context.chart.chartArea) return;
+          const { ctx, chartArea: { top, bottom } } = context.chart;
+          const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+          gradientBg.addColorStop(0, bgColor[0]);
+          gradientBg.addColorStop(1, bgColor[1]);
           return gradientBg;
         },
-
         borderColor: 'rgba(67,150,92,1)',
-        tension: 0.2, //how much curved the graph is
+        tension: 0.2,
         pointRadius: 0, 
         pointHoverRadius: 10, 
         fill: true
@@ -152,9 +127,9 @@ const handleDaysChange = (newDays) =>{
 
   const chartOptions = {
     plugins: {
-        legend: {
-            display: false,
-        }
+      legend: {
+        display: false,
+      }
     },
     scales: {
       x: {
@@ -174,24 +149,27 @@ const handleDaysChange = (newDays) =>{
           drawBorder: true, 
           drawTicks: false,
         },
-        border:{
-          dash: [5,5]
+        border: {
+          dash: [5, 5]
         }
       },
       responsive: true
     }
-  }
+  };
+
+  console.log("pricediff: "+priceDiff)
 
   return (
-
     <div className='crypto-infos'>
       <div className='crypto-desc'>
         <p className='title'>Current Price</p>
         <div className='current-price-and-percentage'>
-          <h1 className='selected-crypto-price'>{currentPrice ? symbol+' '+currentPrice.toFixed(2) : 'Loading Price...'}</h1>
+          <h1 className='selected-crypto-price'>
+            {currentPrice ? symbol + ' ' + currentPrice.toFixed(2) : 'Loading Price...'}
+          </h1>
           <div className={cryptoPercentageBoxClass}>
-            <span id='arrow'>{getArrowIcon(priceChangePercentage24Hours())}</span>
-            <p>{priceChangePercentage24Hours ? Math.abs(priceChangePercentage24Hours())+'%' : 'Loading %...'}</p>
+            <span className='arrow'>{getArrowIcon(selectedCoinDatas.price_change_24h)}</span>
+            <p>{Math.abs(selectedCoinDatas.price_change_percentage_24h.toFixed(2))}%</p>
           </div>
         </div>
         
@@ -201,23 +179,22 @@ const handleDaysChange = (newDays) =>{
         </div>
         
         <div className='crypto-name-and-days'>
-          <p className='selected-crypto-name'>{selectedCoin[0].toUpperCase() +
-        selectedCoin.slice(1)}</p>
+          <p className='selected-crypto-name'>
+            {selectedCoin[0].toUpperCase() + selectedCoin.slice(1)}
+          </p>
           <div className='days'>
-            <span id='day-span' onClick={()=>handleDaysChange(1)}>24H</span>
-            <span id='seperate-span' >|</span>
-            <span id='day-span' onClick={()=>handleDaysChange(7)}>7D</span>
-            <span id='seperate-span' >|</span>
-            <span id='day-span' onClick={()=>handleDaysChange(30)}>30D</span>
-            <span id='seperate-span' >|</span>
-            <span id='day-span' onClick={()=>handleDaysChange(90)}>90D</span>
-            <span id='seperate-span' >|</span>
-            <span id='day-span' onClick={()=>handleDaysChange(365)}>1YEAR</span>
+            <span id='day-span' onClick={() => handleDaysChange(1)}>24H</span>
+            <span id='seperate-span'>|</span>
+            <span id='day-span' onClick={() => handleDaysChange(7)}>7D</span>
+            <span id='seperate-span'>|</span>
+            <span id='day-span' onClick={() => handleDaysChange(30)}>30D</span>
+            <span id='seperate-span'>|</span>
+            <span id='day-span' onClick={() => handleDaysChange(90)}>90D</span>
+            <span id='seperate-span'>|</span>
+            <span id='day-span' onClick={() => handleDaysChange(365)}>1YEAR</span>
           </div>
         </div>
-
       </div>
-
 
       <div className='crypto-chart'>
         {isLoading ? (
@@ -228,7 +205,6 @@ const handleDaysChange = (newDays) =>{
           <Line data={chartData} options={chartOptions} />
         )}
       </div>
-
     </div>
   );
 };
