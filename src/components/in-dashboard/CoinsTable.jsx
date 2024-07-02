@@ -24,6 +24,8 @@ const CoinsTable = ({ onCoinSelect, coins, loading }) => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
+  console.log(currentRows)
+
   return (
     <>
       <div className='coins-table'>
@@ -52,7 +54,11 @@ const CoinsTable = ({ onCoinSelect, coins, loading }) => {
                     <td className={item.price_change_percentage_24h > 0 ? 'price-positive-change-24h' : 'price-negative-change-24h'}>
                       {item.price_change_percentage_24h >= 0 ? `+ ${Math.abs(item.price_change_percentage_24h.toFixed(2))}` : `- ${Math.abs(item.price_change_percentage_24h.toFixed(2))}`}%
                     </td>
-                    <td>{symbol} {item.market_cap.toLocaleString()}</td>
+                    <td>
+                      {symbol} {item.market_cap.toLocaleString()}
+                      <br />
+                      <span style={{ color: 'rgba(255, 255, 255, 0.3)', display: 'block', marginTop: '12px' }}>{item.market_cap_rank} ranked</span>
+                    </td>
                     <td>{symbol} {item.high_24h.toFixed(2)}</td>
                     <td>{symbol} {item.low_24h.toFixed(2)}</td>
                   </tr>

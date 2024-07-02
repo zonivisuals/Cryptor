@@ -182,6 +182,7 @@ const CryptoInfos = ({ selectedCoin, tableCoinsData }) => {
         
         <div className='crypto-name-and-days'>
           <p className='selected-crypto-name'>
+          <img src={selectedCoinDatas ? selectedCoinDatas.image : null} alt=':('/>
             {selectedCoin[0].toUpperCase() + selectedCoin.slice(1)}
           </p>
           <div className='days'>
