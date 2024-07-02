@@ -31,7 +31,7 @@ ChartJS.register(
   Filler
 );
 
-const CryptoInfos = ({ selectedCoin }) => {
+const CryptoInfos = ({ selectedCoin, onPricePercentageChange}) => {
   const { currency, symbol } = CryptoState();
   const [days, setDays] = useState(30);
   const [coinsData, setCoinsData] = useState([]);
@@ -71,6 +71,8 @@ const CryptoInfos = ({ selectedCoin }) => {
     const percentageChange = (absoluteChange / price24HoursAgo)*100
     return percentageChange.toFixed(2)
   }
+
+  onPricePercentageChange(priceChangePercentage24Hours())
 
   const getArrowIcon = (percentageChange)=>{
     if(percentageChange > 0)

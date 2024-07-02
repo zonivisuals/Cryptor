@@ -5,6 +5,7 @@ import '../styles/dashboard.css'
 
 const Dashboard = () => {
   const [selectedCoin, setSelectedCoin] = useState(null);
+  const [pricePercentage, setPricePercentage] = useState(null)
 
   const handleCoinSelect = (id) => {
     setSelectedCoin(id);
@@ -12,8 +13,8 @@ const Dashboard = () => {
 
   return (
     <div className='dashboard'>
-      <CryptoInfos selectedCoin={selectedCoin} />
-      <CoinsTable onCoinSelect={handleCoinSelect} />
+      <CryptoInfos selectedCoin={selectedCoin} onPricePercentageChange={setPricePercentage} />
+      <CoinsTable onCoinSelect={handleCoinSelect} pricePercentage={pricePercentage} />
     </div>
   );
 };
