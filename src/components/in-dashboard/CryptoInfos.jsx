@@ -208,6 +208,9 @@ const CryptoInfos = ({ selectedCoin, tableCoinsData }) => {
           <Line data={chartData} options={chartOptions} />
         )}
       </div>
+      <h2 style={{ 
+        color: 'white'
+        }}>Popular Cryptos</h2>
     </div>
   );
 };

@@ -24,7 +24,10 @@ const CoinsTable = ({ onCoinSelect, coins, loading }) => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
-  console.log(currentRows)
+  const handleRowClick = (coinId) => {
+    onCoinSelect(coinId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -46,7 +49,7 @@ const CoinsTable = ({ onCoinSelect, coins, loading }) => {
               </thead>
               <tbody>
                 {currentRows.map((item) => (
-                  <tr key={item.id} onClick={() => onCoinSelect(item.id)}>
+                  <tr key={item.id} onClick={() => handleRowClick(item.id)}>
                     <td id='name-col'>
                       <img src={item.image} alt={item.name} /> {item.name} ({item.symbol})
                     </td>
