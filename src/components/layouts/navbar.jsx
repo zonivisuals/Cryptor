@@ -30,11 +30,6 @@ export default function Navbar() {
 
       <div className='right-nav'>
 
-        <select className='select-lang'>
-          <option value="eng">ENG</option>
-          <option value="fr">FR</option>
-        </select>
-
         <select className='select-curr' onChange={(e) => setCurrency(e.target.value)}>
           <option value="usd">USD</option>
           <option value="eur">EUR</option>
