@@ -205,7 +205,7 @@ const CryptoInfos = ({ selectedCoin, tableCoinsData }) => {
         {isLoading ? (
           <p>Loading chart data...</p>
         ) : error ? (
-          <p>Error fetching data: {error.message}</p>
+          <p>Error fetching data: {error.message} please reload the page</p>
         ) : (
           <Line data={chartData} options={chartOptions} />
         )}

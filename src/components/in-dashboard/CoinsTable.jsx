@@ -33,7 +33,7 @@ const CoinsTable = ({ onCoinSelect, coins, loading }) => {
     <>
       <div className='coins-table'>
         {loading ? (
-          <p>Loading data...</p>
+          <p></p>
         ) : (
           <>
             <table>
