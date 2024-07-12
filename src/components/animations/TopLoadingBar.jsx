@@ -5,16 +5,16 @@ const TopLoadingBar = ({loading}) => {
   const loadingBarRef = useRef(null)
 
   useEffect(()=>{
-    if(loading){
+    if(loading && loadingBarRef.current){
       loadingBarRef.current.continuousStart()
     }
-    else{
+    else if(loadingBarRef.current){
       loadingBarRef.current.complete()
     }
   },[loading])
 
   return(
-    <LoadingBar color="#f11946" ref={ref} />
+    <LoadingBar color="#57BC76" ref={loadingBarRef} />
   )
 
 }

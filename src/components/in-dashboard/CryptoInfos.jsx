@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 import 'chartjs-adapter-moment';
 import '../styles/cryptoInfos.css';
+import TopLoadingBar from '../animations/TopLoadingBar'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -161,6 +162,7 @@ const CryptoInfos = ({ selectedCoin, tableCoinsData }) => {
 
   return (
     <div className='crypto-infos'>
+      <TopLoadingBar loading={isLoading}/>
       <div className='crypto-desc'>
         <p className='title'>Current Price</p>
         <div className='current-price-and-percentage'>
