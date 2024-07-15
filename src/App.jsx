@@ -9,7 +9,8 @@ import CryptoContext from './CryptoContext';
 import Dashboard from './components/pages/dashboard';
 import Markets from './components/pages/markets';
 import News from './components/pages/news'
-
+import Login from './components/pages/Login'
+import Profile from './components/pages/Profile'
 import './global.css'
 
 
@@ -29,6 +30,8 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard/>} />
                 <Route path="/markets" element={<Markets/>} />
                 <Route path="/news" element={<News/>} />
+                <Route path="/login" element={<Login/>} />
+                <Route path="/profile" element={<Profile/>} />
               </Routes>
             </BrowserRouter>
             

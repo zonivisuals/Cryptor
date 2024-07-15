@@ -5,10 +5,10 @@ import '../styles/profileMenu.css'
 export default function ProfileMenu() {
   return (
     <div className='profile-menu'>
-      <img src={profilePic} alt="pdp" className='profile-pic' />
+      <a href="profile"><img src={profilePic} alt="pdp" className='profile-pic' /></a>
       <div className='profile-menu-props'>
         <p className='profile-username'>zoni</p> {/*username later from db*/}
-        <p className='profile-balance'>≈ $16.48</p> {/* balance later from wallet feature... */}
+        <p className='profile-balance'>Cryptor user</p> {/* balance later from wallet feature... */}
       </div>
     </div>
   )

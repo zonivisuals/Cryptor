@@ -21,7 +21,7 @@ export default function Navbar() {
         <ul className='left-right-nav'>
           <li><a className='navlink' href="dashboard" active>Dashboard</a></li>
           <li><a className='navlink' href="markets">Markets</a></li>
-          <li><a className='navlink' href="#news">News</a></li>
+          <li><a className='navlink' href="news">News</a></li>
         </ul>
 
       </div>
@@ -34,7 +34,7 @@ export default function Navbar() {
           <option value="eur">EUR</option>
         </select>
 
-        <a href="#profile" className='profile-link'><img src={profilePic} alt="profile-pic" className="profile-pic" /></a>
+        <a href="profile" className='profile-link'><img src={profilePic} alt="profile-pic" className="profile-pic" /></a>
       
       </div>
 
