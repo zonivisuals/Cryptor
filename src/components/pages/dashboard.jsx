@@ -3,7 +3,7 @@ import CryptoInfos from '../in-dashboard/CryptoInfos';
 import CoinsTable from '../in-dashboard/CoinsTable';
 import axios from 'axios';
 import { CoinList } from '../../config/cryptoApi';
-import '../styles/dashboard.css';
+import '../styles/crypto-dashboard.css';
 import { CryptoState } from '../../CryptoContext';
 
 const Dashboard = () => {
@@ -29,13 +29,11 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    console.log("Currency changed or component mounted, fetching coins...");
     fetchTableCoins();
   }, [currency]); // Add currency as a dependency to refetch data on currency change
 
-
   return (
-    <div className='dashboard'>
+    <div className='crypto-dashboard'>
       <CryptoInfos selectedCoin={selectedCoin} tableCoinsData={coins} />
       <CoinsTable onCoinSelect={handleCoinSelect} coins={coins} loading={loading} />
     </div>

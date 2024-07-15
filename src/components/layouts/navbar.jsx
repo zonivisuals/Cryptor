@@ -13,15 +13,14 @@ export default function Navbar() {
     <nav>  
       <div className='left-nav'>
 
-        <a href='#dashboard' className='left-left-nav'>
+        <a href='/dashboard' className='left-left-nav'>
           <img src={cryptorLogo} alt="logo" className='cryptor-logo'/>
           <h1>Cryptor</h1>
         </a>
 
         <ul className='left-right-nav'>
-          <li><a className='navlink' href="#dashboard" active>Dashboard</a></li>
-          <li><a className='navlink' href="#markets">Markets</a></li>
-          <li><a className='navlink' href="#wallet">Wallet</a></li>
+          <li><a className='navlink' href="dashboard" active>Dashboard</a></li>
+          <li><a className='navlink' href="markets">Markets</a></li>
           <li><a className='navlink' href="#news">News</a></li>
         </ul>
 
