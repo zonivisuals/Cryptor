@@ -27,7 +27,7 @@ function Profile() {
           </div>
 
         </div>
-      </div>
+      </div>2
 
       <div className='right-col'>
                 

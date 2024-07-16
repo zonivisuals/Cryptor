@@ -10,6 +10,7 @@ import Dashboard from './components/pages/dashboard';
 import Markets from './components/pages/markets';
 import News from './components/pages/news'
 import Login from './components/pages/Login'
+import Signup from './components/pages/Signup'
 import Profile from './components/pages/Profile'
 import './global.css'
 
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/markets" element={<Markets/>} />
                 <Route path="/news" element={<News/>} />
                 <Route path="/login" element={<Login/>} />
+                <Route path="/signup" element={<Signup/>} />
                 <Route path="/profile" element={<Profile/>} />
               </Routes>
             </BrowserRouter>

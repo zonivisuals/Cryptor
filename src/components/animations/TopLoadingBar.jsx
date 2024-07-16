@@ -16,7 +16,7 @@ const TopLoadingBar = ({loading}) => {
   return(
     <LoadingBar color="#57BC76" ref={loadingBarRef} />
   )
-
+  
 }
 
 export default TopLoadingBar
