@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import profilePic from '../../assets/pdp.jpeg' // will import it later from database
+
+
 
 function Profile() {
+
   return (
     <div className='profil-page'>
       <div className='left-col'>
@@ -25,13 +29,16 @@ function Profile() {
         </div>
       </div>
 
-
       <div className='right-col'>
-        <img src="" alt="profile picture" />
-        <button>Change picture</button>
+                
       </div>
+          <div className='delete-div'>
+            const className = 1
+            const aspect 
+          </div>
     </div>
-  )
+    
+)
 }
 
 export default Profile

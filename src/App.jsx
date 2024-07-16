@@ -13,6 +13,8 @@ import Login from './components/pages/Login'
 import Profile from './components/pages/Profile'
 import './global.css'
 
+import ReactCrop from 'react-image-crop'
+import 'react-image-crop/dist/ReactCrop.css'
 
 function App() {
   return (
