@@ -23,25 +23,26 @@ function App() {
     <CryptoContext>
       <div className='app'>
         <Navbar />
-          <div className='hero'>
-            <Sidebar>
-              <ProfileMenu />
-              <WalletMenu />
-            </Sidebar>
+          <div>
+            <div className='hero'>
+              <Sidebar>
+                <ProfileMenu />
+                <WalletMenu />
+              </Sidebar>
 
-            <BrowserRouter>
-              <Routes>
-                <Route path="/dashboard" element={<Dashboard/>} />
-                <Route path="/markets" element={<Markets/>} />
-                <Route path="/news" element={<News/>} />
-                <Route path="/login" element={<Login/>} />
-                <Route path="/signup" element={<Signup/>} />
-                <Route path="/profile" element={<Profile/>} />
-              </Routes>
-            </BrowserRouter>
-            
-        </div>
-        <Ticker />
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/dashboard" element={<Dashboard/>} />
+                  <Route path="/markets" element={<Markets/>} />
+                  <Route path="/news" element={<News/>} />
+                  <Route path="/login" element={<Login/>} />
+                  <Route path="/signup" element={<Signup/>} />
+                  <Route path="/profile" element={<Profile/>} />
+                </Routes>
+              </BrowserRouter>
+            </div>
+            <Ticker />
+          </div>
       </div>
     </CryptoContext>
   );

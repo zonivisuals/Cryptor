@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { CryptoState } from '../../contexts/CryptoContext';
 import '../styles/coinsTable.css';
 
-const CoinsTable = ({ onCoinSelect, coins, loading }) => {
-  const { currency, symbol } = CryptoState();
+const CoinsTable = ({ onCoinSelect, coins, loading, currency, symbol }) => {
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);

@@ -31,8 +31,7 @@ ChartJS.register(
   Filler
 );
 
-const CryptoInfos = ({ selectedCoin, tableCoinsData }) => {
-  const { currency, symbol } = CryptoState();
+const CryptoInfos = ({ selectedCoin, tableCoinsData, currency, symbol }) => {
   const [days, setDays] = useState(30);
   const [coinsData, setCoinsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false); 

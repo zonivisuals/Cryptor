@@ -3,8 +3,6 @@
     --secondary-font: 'Epilogue', sans-serif;
   }
 
-
-  
 body {
   margin: 0;
   font-family: var(--main-font);
@@ -15,8 +13,4 @@ body {
 .hero{
   display: flex;
   max-width: 100vw;
-}
-
-.dashboard{
-  width: 100vw;
 }
