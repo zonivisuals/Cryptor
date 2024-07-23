@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CryptoState } from '../../CryptoContext';
+import { CryptoState } from '../../contexts/CryptoContext';
 import '../styles/coinsTable.css';
 
 const CoinsTable = ({ onCoinSelect, coins, loading }) => {

@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/navbar.css'
 import cryptorLogo from '../../assets/cryptor logo.svg'
 import profilePic from '../../assets/pdp.jpeg' // will import it later from database
-import { CryptoState } from '../../CryptoContext'
+import { CryptoState } from '../../contexts/CryptoContext'
 
 export default function Navbar() {
 

@@ -4,7 +4,7 @@ import CoinsTable from '../in-dashboard/CoinsTable';
 import axios from 'axios';
 import { CoinList } from '../../config/cryptoApi';
 import '../styles/crypto-dashboard.css';
-import { CryptoState } from '../../CryptoContext';
+import { CryptoState } from '../../contexts/CryptoContext';
 
 const Dashboard = () => {
   const [selectedCoin, setSelectedCoin] = useState(null);

@@ -30,12 +30,9 @@ function Profile() {
       </div>2
 
       <div className='right-col'>
-                
+        <img src={profilePic} alt="" />        
       </div>
-          <div className='delete-div'>
-            const className = 1
-            const aspect 
-          </div>
+
     </div>
     
 )

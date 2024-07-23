@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CryptoState } from "../../CryptoContext";
+import { CryptoState } from "../../contexts/CryptoContext";
 import { HistoricalChart } from "../../config/cryptoApi";
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';

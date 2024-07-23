@@ -1,0 +1,21 @@
+.singup-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.signup-form{
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.signup-form input{
+    min-width: 20.5rem;
+}

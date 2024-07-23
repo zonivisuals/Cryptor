@@ -5,13 +5,14 @@ import Sidebar from "./components/layouts/sidebar";
 import ProfileMenu from './components/in-sidebar/profileMenu';
 import WalletMenu from './components/in-sidebar/walletMenu';
 import CryptoDashboard from './components/pages/dashboard';
-import CryptoContext from './CryptoContext';
+import CryptoContext from './contexts/CryptoContext';
 import Dashboard from './components/pages/dashboard';
 import Markets from './components/pages/markets';
 import News from './components/pages/news'
 import Login from './components/pages/Login'
 import Signup from './components/pages/Signup'
 import Profile from './components/pages/Profile'
+import Ticker from './components/layouts/ticker'
 import './global.css'
 
 import ReactCrop from 'react-image-crop'
@@ -40,6 +41,7 @@ function App() {
             </BrowserRouter>
             
         </div>
+        <Ticker />
       </div>
     </CryptoContext>
   );

@@ -1,0 +1,12 @@
+.ticker{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 2rem;
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    backdrop-filter: blur(8px);
+    position: sticky;
+    bottom: 0;
+}
