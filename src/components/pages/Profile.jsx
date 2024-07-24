@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import profilePic from '../../assets/pdp.jpeg' // will import it later from database
 
 

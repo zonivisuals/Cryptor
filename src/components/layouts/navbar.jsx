@@ -6,7 +6,7 @@ import { CryptoState } from '../../contexts/CryptoContext'
 
 export default function Navbar() {
 
-  const {currency, setCurrency} = CryptoState()
+  const { setCurrency } = CryptoState()
 
 
   return (

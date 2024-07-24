@@ -1,54 +1,57 @@
-import React from 'react'
-import '../styles/ticker.css'
+import React, { useEffect, useRef } from 'react';
+import '../styles/ticker.css';
 import { CryptoState } from '../../contexts/CryptoContext';
 
-function ticker() {
+function Ticker() {
+  const { coins } = CryptoState();
+  const scrollerRef = useRef(null);
 
-  const { coins, loading } = CryptoState();
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (scroller) {
+      const scrollerInner = scroller.querySelector(".scroller__inner");
 
-  const scrollers = document.querySelectorAll(".scroller");
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        // Reset the animation
+        scroller.removeAttribute("data-animated");
+        while (scrollerInner.firstChild) {
+          scrollerInner.removeChild(scrollerInner.firstChild);
+        }
 
-// If a user hasn't opted in for recuded motion, then we add the animation
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  addAnimation();
-}
+        // Clone and append items
+        coins.forEach((item) => {
+          const symbolSpan = document.createElement('span');
+          symbolSpan.textContent = item.symbol.toUpperCase();
 
-function addAnimation() {
-  scrollers.forEach((scroller) => {
-    // add data-animated="true" to every `.scroller` on the page
-    scroller.setAttribute("data-animated", true);
+          const percentageLi = document.createElement('li');
+          percentageLi.className = item.price_change_percentage_24h > 0 ? 'price-positive-change-24h' : 'price-negative-change-24h';
+          percentageLi.textContent = `${item.price_change_percentage_24h.toFixed(2)}%`;
 
-    // Make an array from the elements within `.scroller-inner`
-    const scrollerInner = scroller.querySelector(".scroller__inner");
-    const scrollerContent = Array.from(scrollerInner.children);
+          const eachCoinDetail = document.createElement('div')
+          eachCoinDetail.className = 'eachCoinDetail'
+          scrollerInner.appendChild(eachCoinDetail)
+          eachCoinDetail.appendChild(symbolSpan)
+          eachCoinDetail.appendChild(percentageLi)
 
-    // For each item in the array, clone it
-    // add aria-hidden to it
-    // add it into the `.scroller-inner`
-    scrollerContent.forEach((item) => {
-      const duplicatedItem = item.cloneNode(true);
-      duplicatedItem.setAttribute("aria-hidden", true);
-      scrollerInner.appendChild(duplicatedItem);
-    });
-  });
-}
+          
+        });
 
+        // Restart the animation
+        requestAnimationFrame(() => {
+          
+          scroller.setAttribute("data-animated", true);
+        });
+      }
+    }
+  }, [coins]);
 
   return (
-    <div className='scroller'>
+    <div className='scroller' ref={scrollerRef}>
       <ul className='tag-list scroller__inner'>
-      {coins.map((item) => (
-        <>
-          <span>{item.symbol.toUpperCase()}</span>
-          <li className={item.price_change_percentage_24h > 0 ? 'price-positive-change-24h' : 'price-negative-change-24h'}>
-            {(item.price_change_percentage_24h).toFixed(2)}%
-          </li>
-        </>
-      ))}
+
       </ul>
     </div>
-  )
+  );
 }
 
-export default ticker
-
+export default Ticker;
