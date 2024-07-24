@@ -6,8 +6,8 @@ import ProfileMenu from './components/in-sidebar/profileMenu';
 import WalletMenu from './components/in-sidebar/walletMenu';
 import CryptoContext from './contexts/CryptoContext';
 import Dashboard from './components/pages/dashboard';
-import Markets from './components/pages/markets';
-import News from './components/pages/news'
+/* import Markets from './components/pages/markets';
+import News from './components/pages/news' */
 import Login from './components/pages/Login'
 import Signup from './components/pages/Signup'
 import Profile from './components/pages/Profile'

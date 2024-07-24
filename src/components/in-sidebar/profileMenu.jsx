@@ -1,5 +1,5 @@
 import React from 'react'
-import profilePic from '../../assets/pdp.jpeg' // will import it later from database
+import profilePic from '../../assets/pdp.jpeg'
 import '../styles/profileMenu.css'
 
 export default function ProfileMenu() {

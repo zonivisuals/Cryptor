@@ -1,0 +1,12 @@
+.profil-page{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+
+.profil-page h1{
+    margin: 0;
+}
