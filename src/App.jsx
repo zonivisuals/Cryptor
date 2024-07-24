@@ -31,8 +31,8 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Navigate to="/dashboard" />} />
                   <Route path="/dashboard" element={<Dashboard/>} />
-                  <Route path="/markets" element={<Markets/>} />
-                  <Route path="/news" element={<News/>} />
+                  {/* <Route path="/markets" element={<Markets/>} />
+                  <Route path="/news" element={<News/>} /> */}
                   <Route path="/login" element={<Login/>} />
                   <Route path="/signup" element={<Signup/>} />
                   <Route path="/profile" element={<Profile/>} />

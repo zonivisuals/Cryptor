@@ -103,3 +103,11 @@ select option{
 .navlink:focus{
     color: #47A663;
 }
+
+.navlink.active {
+    color: #47A663;
+}
+
+.navlink.active::after {
+    background: #47A663;
+}

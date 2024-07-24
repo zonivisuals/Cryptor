@@ -8,6 +8,18 @@ export default function Navbar() {
 
   const { setCurrency } = CryptoState()
 
+  //handle clicked navlinks
+  document.addEventListener('DOMContentLoaded', () => {
+    const navlinks = document.querySelectorAll('.navlink');
+  
+    navlinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navlinks.forEach(link => link.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  });
+
 
   return (
     <nav>  
@@ -20,8 +32,8 @@ export default function Navbar() {
 
         <ul className='left-right-nav'>
           <li><a className='navlink' href="dashboard" active>Dashboard</a></li>
-          <li><a className='navlink' href="markets">Markets</a></li>
-          <li><a className='navlink' href="news">News</a></li>
+          <li><a className='navlinko' href="#" style={{color : 'rgba(255, 255, 255, 0.4)'}}>Markets</a></li>
+          <li><a className='navlinko' href="#" style={{color : 'rgba(255, 255, 255, 0.4)'}}>News</a></li>
         </ul>
 
       </div>
