@@ -180,6 +180,7 @@
 
 .crypto-chart{
     margin-top: 2.2em;
+    min-width: 100%;
 }
 
 .selected-crypto-name img{
@@ -189,4 +190,12 @@
     border-radius: 50%;
 
     vertical-align: middle;
+}
+
+@media (max-width: 44rem) {
+    .crypto-name-and-days{
+        flex-direction: column;
+        align-items: start;
+    }
+
 }

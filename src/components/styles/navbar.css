@@ -27,7 +27,7 @@ nav{
     color: #FFFF;
 }
 
-.left-right-nav{
+nav .left-right-nav{
     font-family: var(--main-font);
     display: flex;
     align-items: center;
@@ -110,4 +110,57 @@ select option{
 
 .navlink.active::after {
     background: #47A663;
+}
+
+.mobile-nav-toggle{
+    display: none;
+}
+
+
+
+/*change to humberger 44rem */
+
+
+/*humberger nav style*/
+@media (max-width: 44rem) {
+    h1{
+        color: red;
+    }
+    
+    nav{
+        position: relative;
+    }
+
+    nav .left-right-nav{
+        z-index: 10;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: auto;
+        flex-direction: column;
+        align-items: start;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        height: 100vh;
+        width: 44vw;
+        padding: 8rem 5rem 0 4rem;
+        font-size: .8rem;
+    }
+
+    .profile-link{
+        display: none;
+    }
+
+    .select-curr{
+        display: none;
+    }
+
+    .mobile-nav-toggle{
+        display: block;
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+        z-index: 9999;
+    }
 }

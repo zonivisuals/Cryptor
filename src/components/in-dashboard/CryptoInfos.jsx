@@ -49,7 +49,6 @@ const CryptoInfos = ({ selectedCoin, tableCoinsData, currency, symbol }) => {
       setCoinsData(data.prices);
       const currentPrice = data.prices[data.prices.length - 1][1];
       setCurrentPrice(currentPrice);
-      console.log('Fetched coin data:', data);
     } catch (error) {
       setError(error); 
     } finally {
@@ -65,7 +64,6 @@ const CryptoInfos = ({ selectedCoin, tableCoinsData, currency, symbol }) => {
     if (tableCoinsData && selectedCoin) {
       const coinDatas = tableCoinsData.find(coin => coin.id === selectedCoin);
       setSelectedCoinDatas(coinDatas);
-      console.log('Selected coin data:', coinDatas);
     }
   }, [selectedCoin, tableCoinsData]);
 

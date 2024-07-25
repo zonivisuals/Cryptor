@@ -7,10 +7,15 @@ body {
   margin: 0;
   font-family: var(--main-font);
   background-color: #2B2C2B;
-  overflow-x: hidden;
 }
 
 .hero{
   display: flex;
   max-width: 100vw;
+}
+
+@media (max-width: 44rem) {
+  body{
+    font-size: 0.6rem;
+  }
 }

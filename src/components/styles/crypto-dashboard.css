@@ -1,3 +1,10 @@
 .crypto-dashboard{
     width: 100vw;
 }
+
+@media (max-width: 44rem) {
+
+.crypto-dashboard{
+    overflow-x: hidden;
+  }
+}

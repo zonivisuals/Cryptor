@@ -7,7 +7,7 @@ export default function ProfileMenu() {
     <div className='profile-menu'>
       <a href="profile"><img src={profilePic} alt="pdp" className='profile-pic' /></a>
       <div className='profile-menu-props'>
-        <p className='profile-username'>zoni</p> {/*username later from db*/}
+        <p className='profile-username'>Mohamed</p> {/*username later from db*/}
         <p className='profile-balance'>New user</p> {/* balance later from wallet feature... */}
       </div>
     </div>

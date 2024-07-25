@@ -16,8 +16,8 @@ table {
 }
 
 td img {
-    width: 36px;
-    height: 36px;
+    width: 3.6em;
+    height: 3.6em;
     margin-right: .5rem;
     border-radius: 50%;
 
@@ -56,7 +56,7 @@ table td{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1.8em auto 1.8em auto;
+    margin: 1.8em auto 2.6em auto;
     width: fit-content;
 
 }
@@ -85,4 +85,24 @@ table td{
 
 .price-negative-change-24h{
     color: #E14141;
+}
+
+@media (max-width: 44rem) {
+    .coins-table{
+        max-width: 90vw;
+    }
+
+    .pagination{
+        margin-bottom: 2.6rem;
+    }
+
+    table{
+        overflow: scroll;
+    }
+
+    td img {
+        width: 2.6em;
+        height: 2.6em;
+    }
+
 }

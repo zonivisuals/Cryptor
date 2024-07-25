@@ -18,3 +18,8 @@
 }
 
 
+@media (max-width: 66rem){
+    .sidebar{
+        display: none;
+    }
+}

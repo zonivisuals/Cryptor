@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../styles/navbar.css'
 import cryptorLogo from '../../assets/cryptor logo.svg'
 import profilePic from '../../assets/pdp.jpeg'
@@ -20,9 +20,31 @@ export default function Navbar() {
     });
   });
 
+  const handleMobileNavToggle = ()=>{
+    const mobileNav = document.querySelectorAll('.left-right-nav')
+    const navToggle = document.querySelectorAll('mobile-nav-toggle')
+
+    const visibility = mobileNav.getAttribute('data-visible') 
+    if(visibility === 'false'){
+      mobileNav.setAttribute('data-visible', true)
+    }
+    else{
+      mobileNav.setAttribute('data-visible', false)
+    }
+  }
+
+
+
 
   return (
     <nav>  
+
+      <button onClick={handleMobileNavToggle} className='mobile-nav-toggle' aria-expanded='false' aria-controls='left-right-nav'>
+        <span class="material-symbols-outlined">
+          menu
+        </span> 
+      </button>
+
       <div className='left-nav'>
 
         <a href='/dashboard' className='left-left-nav'>
@@ -30,7 +52,7 @@ export default function Navbar() {
           <h1>Cryptor</h1>
         </a>
 
-        <ul className='left-right-nav'>
+        <ul className='left-right-nav' data-visible='false'>
           <li><a className='navlink' href="dashboard" active>Dashboard</a></li>
           <li><a className='navlinko' href="#" style={{color : 'rgba(255, 255, 255, 0.4)'}}>Markets</a></li>
           <li><a className='navlinko' href="#" style={{color : 'rgba(255, 255, 255, 0.4)'}}>News</a></li>
@@ -49,7 +71,6 @@ export default function Navbar() {
         <a href="profile" className='profile-link'><img src={profilePic} alt="profile-pic" className="profile-pic" /></a>
       
       </div>
-
     </nav>
   )
 }

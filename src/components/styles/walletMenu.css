@@ -66,3 +66,9 @@
     border: none;
     height: 3.6em;
 }
+
+@media (max-width: 76rem){
+    .wallet-menu{
+        display: none;
+    }
+}
