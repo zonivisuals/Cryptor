@@ -21,23 +21,28 @@ export default function Navbar() {
   });
 
   const handleMobileNavToggle = ()=>{
-    const mobileNav = document.querySelectorAll('.left-right-nav')
-    const navToggle = document.querySelectorAll('mobile-nav-toggle')
+    const mobileNav = document.querySelector('.left-right-nav')
+    const navToggle = document.querySelector('.mobile-nav-toggle')
+    const toggleIcon = document.querySelector('.material-symbols-outlined')
+    const navbar = document.querySelector('.navbar')
 
     const visibility = mobileNav.getAttribute('data-visible') 
     if(visibility === 'false'){
       mobileNav.setAttribute('data-visible', true)
+      navToggle.setAttribute('aria-expanded', false)
+      navbar.setAttribute('data-overflow', false)
+      toggleIcon.textContent = 'close'
     }
     else{
       mobileNav.setAttribute('data-visible', false)
+      navToggle.setAttribute('aria-expanded', true)
+      navbar.setAttribute('data-overflow', true)
+      toggleIcon.textContent = 'menu'
     }
   }
 
-
-
-
   return (
-    <nav>  
+    <nav data-overflow='true' className='navbar'>  
 
       <button onClick={handleMobileNavToggle} className='mobile-nav-toggle' aria-expanded='false' aria-controls='left-right-nav'>
         <span class="material-symbols-outlined">

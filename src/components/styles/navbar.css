@@ -131,6 +131,11 @@ select option{
         position: relative;
     }
 
+    nav[data-overflow='true']{
+        overflow-x: hidden;
+    }
+
+
     nav .left-right-nav{
         z-index: 10;
         margin: 0;
@@ -146,6 +151,13 @@ select option{
         width: 44vw;
         padding: 8rem 5rem 0 4rem;
         font-size: .8rem;
+
+        transform: translateX(100%);
+        transition: transform 250ms ease-in-out;
+    }
+    
+    nav .left-right-nav[data-visible='true']{
+        transform: translateX(0%);
     }
 
     .profile-link{
@@ -160,7 +172,12 @@ select option{
         display: block;
         position: absolute;
         right: 2rem;
-        top: 2rem;
+        top: .6rem;
         z-index: 9999;
+        color: white;
+        aspect-ratio: 1;
+        background-color: transparent;
+        border: 0;
     }
+
 }
