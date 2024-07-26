@@ -8,6 +8,8 @@ nav{
     font-size: 62.5%;
     padding: 0 3.2em;
     background: linear-gradient(135deg, rgba(73,73,73,1) 0%, rgba(73,73,73,0.05) 100%);
+
+    overflow: visible;
 }
 
 .left-nav{
@@ -123,16 +125,13 @@ select option{
 
 /*humberger nav style*/
 @media (max-width: 44rem) {
-    h1{
-        color: red;
-    }
     
     nav{
         position: relative;
     }
 
     nav[data-overflow='true']{
-        overflow-x: hidden;
+        overflow: hidden;
     }
 
 
@@ -178,6 +177,10 @@ select option{
         aspect-ratio: 1;
         background-color: transparent;
         border: 0;
+    }
+
+    .cryptor-logo{
+        width: 2rem;
     }
 
 }

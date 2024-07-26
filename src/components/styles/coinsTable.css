@@ -88,9 +88,6 @@ table td{
 }
 
 @media (max-width: 44rem) {
-    .coins-table{
-        max-width: 90vw;
-    }
 
     .pagination{
         margin-bottom: 2.6rem;
